@@ -1,0 +1,561 @@
+/*
+  Estilo general
+  Paleta principal: verde
+*/
+
+:root {
+  --container: 980px;
+  --bg: #f4f6f8;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #e2e8f0;
+  --brand: #15803d;
+  --brand-hover: #166534;
+  --danger: #dc2626;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif;
+  line-height: 1.45;
+}
+
+/* Contenedor general */
+main {
+  max-width: var(--container);
+  width: calc(100% - 32px);
+  margin: 0 auto;
+}
+
+main {
+  padding: 22px 0 8px;
+}
+
+footer {
+  padding: 20px 0 26px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* =========================
+   Botones
+   ========================= */
+
+.btn {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--brand);
+  color: #fff;
+  border: 0;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: transform .06s ease, filter .15s ease, background .15s ease;
+  user-select: none;
+}
+
+.btn:hover {
+  background: var(--brand-hover);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 4px rgba(21, 128, 61, 0.18);
+}
+
+.btn--secondary {
+  margin-top: 20px;
+  background: #0f172a;
+}
+
+.btn--secondary:hover {
+  background: #111827;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.btn:disabled,
+.btn[disabled] {
+  opacity: .55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================
+   Header / Hero
+   ========================= */
+
+header {
+  width: 100%;
+  height: 420px;
+  padding: 28px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(180deg, rgba(2, 6, 23, 0.62), rgba(2, 6, 23, 0.18)),
+    url("../img/heroe.png");
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Enlace invisible para volver al catálogo al tocar el hero */
+.hero-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+  max-width: var(--container);
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(26px, 3.4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-shadow: 0 8px 28px rgba(2, 6, 23, 0.35);
+}
+
+header h2 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-weight: 600;
+  text-shadow: 0 8px 26px rgba(2, 6, 23, 0.35);
+}
+
+/* Enlace del carrito en el hero */
+.cart-link {
+  position: absolute;
+  top: 18px;
+  right: 16px;
+  z-index: 3;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(2, 6, 23, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+.cart-link:hover {
+  background: rgba(2, 6, 23, 0.55);
+}
+
+/* =========================
+   Catálogo
+   ========================= */
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.catalogo article {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.catalogo article:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+}
+
+.catalogo .imagen {
+  height: 210px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.catalogo h3 {
+  margin: 12px 0 6px;
+  font-size: 18px;
+}
+
+.catalogo p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+.tipo {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 12px;
+  margin: 10px 0 10px;
+}
+
+.precio {
+  font-weight: 800;
+  color: var(--text);
+}
+
+.cta {
+  margin-top: 10px;
+}
+
+/* =========================
+   Controles comunes
+   ========================= */
+
+label {
+  display: block;
+  margin: 12px 0 6px 0;
+  font-weight: 700;
+  color: #111827;
+}
+
+.control {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  outline: none;
+  font-size: 14px;
+}
+
+.control:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px rgba(21, 128, 61, 0.15);
+}
+
+/* =========================
+   Vista detalle (campo)
+   ========================= */
+
+section {
+  width: 100%;
+}
+
+/* Solo el detalle usa flex en el form */
+.campo form {
+  width: 100%;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.campo .izquierda {
+  flex: 1;
+}
+
+.campo .derecha {
+  flex: 2;
+  text-align: left;
+  padding: 6px 4px;
+}
+
+.campo .izquierda img {
+  width: 100%;
+  border-radius: 14px;
+  display: block;
+  border: 1px solid var(--border);
+}
+
+.notice {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.notice--danger {
+  border-color: rgba(220, 38, 38, 0.25);
+  background: rgba(220, 38, 38, 0.06);
+  color: #7f1d1d;
+}
+
+/* =========================
+   Carrito
+   ========================= */
+
+.carrito {
+  display: block;
+}
+
+.cart-layout {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.cart-left {
+  flex: 2;
+  min-width: 0;
+}
+
+.cart-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.panel h3 {
+  margin: 0 0 12px;
+}
+
+.table-wrap {
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+/* Tabla */
+.carrito table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.carrito table thead {
+  background: var(--brand);
+  color: #fff;
+  text-align: left;
+}
+
+.carrito table th,
+.carrito table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.carrito table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.carrito table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Alineaciones */
+.carrito table th:nth-child(3),
+.carrito table td:nth-child(3),
+.carrito table th:nth-child(4),
+.carrito table td:nth-child(4),
+.carrito table th:nth-child(5),
+.carrito table td:nth-child(5) {
+  white-space: nowrap;
+}
+
+.carrito table th:nth-child(6),
+.carrito table td:nth-child(6) {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.carrito table th:last-child,
+.carrito table td:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Total */
+.carrito table tbody tr:last-child td {
+  font-weight: 800;
+  background: #f1f5f9;
+}
+
+/* Acciones: + y eliminar */
+.btn-mas {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.btn-mas:hover {
+  background: #f1f5f9;
+}
+
+.btn-mas-disabled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #f8fafc;
+  color: #94a3b8;
+  font-weight: 900;
+}
+
+.btn-eliminar {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(220, 38, 38, 0.22) !important;
+  background: rgba(220, 38, 38, 0.06) !important;
+  color: var(--danger) !important;
+  text-decoration: none !important;
+  font-weight: 800 !important;
+}
+
+.btn-eliminar:hover {
+  background: rgba(220, 38, 38, 0.10) !important;
+}
+
+/* Vaciar */
+.btn-vaciar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--danger);
+  font-weight: 800;
+}
+
+.btn-vaciar:hover {
+  text-decoration: underline;
+}
+
+/* Form cliente del carrito */
+.cart-right .panel form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  text-align: left;
+}
+
+.cart-right .panel form label {
+  margin: 0;
+}
+
+/* =========================
+   Finalización
+   ========================= */
+
+.finalizacion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  text-align: center;
+}
+
+.finalizacion h3 {
+  margin: 0 0 8px;
+}
+
+.finalizacion p {
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 900px) {
+  .catalogo {
+    grid-template-columns: 1fr;
+  }
+
+  .campo form {
+    flex-direction: column;
+  }
+
+  .cart-layout {
+    flex-direction: column;
+  }
+
+  header {
+    height: 360px;
+  }
+}
+
+/* =========================
+   Footer
+   ========================= */
+
+footer {
+  width: 100%;
+  padding: 18px 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(6px);
+}
